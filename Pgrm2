@@ -1,0 +1,32 @@
+import random
+# Function to make a move for the bot
+def bot_move(coins, max_coins):
+# Implement your bot's strategy here
+# For example, you can choose to make a random move
+move = random.randint(1, max_coins)
+# Ensure that the move is within the allowed range
+move = min(move, coins)
+return move
+# Main game loop
+def play_game():
+coins = 15 # Set the initial number of coins
+max_coins = 3 # Maximum number of coins a player can take in one 
+turn
+while coins > 0:
+print(f"Remaining coins: {coins}")
+# Bot's move
+bot_move_count = bot_move(coins, max_coins)
+print(f"Bot takes {bot_move_count} coin(s).")
+coins -= bot_move_count
+if coins == 0:
+print("Bot wins!")
+break
+# Human player's move (if you want to play against the bot)
+player_move_count = int(input("Your turn: How many coins will 
+you take? "))
+coins -= player_move_count
+if coins == 0:
+print("You win!")
+break
+if __name__ == "__main__":
+play_game()
